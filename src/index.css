@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg-0: #171512;
+  --color-bg-1: #1e1c19;
+  --color-bg-2: #262221;
+
+  --color-text-primary: #e4e4e7;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+
+  --color-border-soft: #3c3735;
+  --color-border-strong: #2e2a28;
+
+  --color-blue: #2a72bd;
+  --color-green: #1f7436;
+  --color-orange: #fc6701;
+
+  --font-main: "Geist", sans-serif;
+  --font-decorative: "Geist Mono", monospace;
+
+  --text-14: 14px;
+  --text-16: 16px;
+
+  --leading-14: 20px;
+  --leading-16: 24px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+}
+
+@theme {
+  --color-bg-0: var(--color-bg-0);
+  --color-bg-1: var(--color-bg-1);
+  --color-bg-2: var(--color-bg-2);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+
+  --color-border-soft: var(--color-border-soft);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-blue: var(--color-blue);
+  --color-green: var(--color-green);
+  --color-orange: var(--color-orange);
+
+  --font-main: "Geist", sans-serif;
+  --font-decorative: "Geist Mono", monospace;
+}
+
+/* Custom typography utilities */
+
+@utility text-16-regular {
+  font-family: var(--font-main);
+  font-size: var(--text-16);
+  line-height: var(--leading-16);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility text-16-medium {
+  font-family: var(--font-main);
+  font-size: var(--text-16);
+  line-height: var(--leading-16);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility text-14-regular {
+  font-family: var(--font-main);
+  font-size: var(--text-14);
+  line-height: var(--leading-14);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility text-14-medium {
+  font-family: var(--font-main);
+  font-size: var(--text-14);
+  line-height: var(--leading-14);
+  font-weight: var(--font-weight-medium);
+}
+
+html,
+body {
+  background-color: var(--color-bg-0);
+  color: var(--color-text-primary);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
