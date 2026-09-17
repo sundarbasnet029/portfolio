@@ -1,6 +1,44 @@
 @import "tailwindcss";
 
 :root {
+  --color-bg-0: #f4efdc;
+  --color-bg-1: #efe8cd;
+  --color-bg-2: #ded7b9;
+
+  --color-text-primary: #292622;
+  --color-text-secondary: #726c64;
+  --color-text-tertiary: #888177;
+
+  --color-border-soft: #beb9a6;
+  --color-border-strong: #dbd4b8;
+
+  --color-blue: #2a72bd;
+  --color-green: #1f7436;
+  --color-orange: #fc6701;
+  --color-gold: #A37800;
+
+ 
+  --color-drop-shadow: #9C9C9C33;
+  --color-inner-shadow: #FEDE6633;
+  --color-inner-shadow-hover: #FFCA0033;
+  --color-shader-accent:#C19E45;
+  --color-shader-bg: #F4EFDC;
+
+  --font-main: "Geist", sans-serif;
+  --font-decorative: "Geist Mono", monospace;
+
+  --text-13: 13px; 
+  --text-14: 14px;
+  --text-16: 16px;
+
+  --leading-20: 20px;
+  --leading-24: 24px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+}
+
+.dark {
   --color-bg-0: #171512;
   --color-bg-1: #1e1c19;
   --color-bg-2: #262221;
@@ -15,19 +53,19 @@
   --color-blue: #2a72bd;
   --color-green: #1f7436;
   --color-orange: #fc6701;
+  --color-gold: #B18300;
 
-  --font-main: "Geist", sans-serif;
-  --font-decorative: "Geist Mono", monospace;
-
-  --text-14: 14px;
-  --text-16: 16px;
-
-  --leading-14: 20px;
-  --leading-16: 24px;
-
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
+  --color-drop-shadow: #00000040;
+  --color-inner-shadow: #00000040;
+  --color-inner-shadow-hover: #835F3540;
+  --color-shader-accent:#483604;
+  --color-shader-bg: #171512;
 }
+
+
+
+
+
 
 @theme {
   --color-bg-0: var(--color-bg-0);
@@ -44,6 +82,16 @@
   --color-blue: var(--color-blue);
   --color-green: var(--color-green);
   --color-orange: var(--color-orange);
+  --color-gold: var(--color-gold);
+
+  --color-drop-shadow: var(--color-drop-shadow);
+  --color-inner-shadow: var(--color-inner-shadow);
+  --color-inner-shadow-hover: var(--color-inner-shadow-hover);
+  --color-shader-bg: var(--color-shader-bg);
+  --color-shader-accent: var(--color-shader-accent);
+
+  --color-shader-accent:var(--color-shader-accent);
+  --color-shader-bg:var(--color-shader-bg);
 
   --font-main: "Geist", sans-serif;
   --font-decorative: "Geist Mono", monospace;
@@ -54,30 +102,59 @@
 @utility text-16-regular {
   font-family: var(--font-main);
   font-size: var(--text-16);
-  line-height: var(--leading-16);
+  line-height: var(--leading-24);
   font-weight: var(--font-weight-regular);
 }
 
 @utility text-16-medium {
   font-family: var(--font-main);
   font-size: var(--text-16);
-  line-height: var(--leading-16);
+  line-height: var(--leading-24);
   font-weight: var(--font-weight-medium);
 }
 
 @utility text-14-regular {
   font-family: var(--font-main);
   font-size: var(--text-14);
-  line-height: var(--leading-14);
+  line-height: var(--leading-20);
+  font-weight: var(--font-weight-regular);
+}
+@utility text-13-regular {
+  font-family: var(--font-main);
+  font-size: var(--text-13);
+  line-height: var(--leading-20);
   font-weight: var(--font-weight-regular);
 }
 
 @utility text-14-medium {
   font-family: var(--font-main);
   font-size: var(--text-14);
-  line-height: var(--leading-14);
+  line-height: var(--leading-20);
   font-weight: var(--font-weight-medium);
 }
+@utility text-14-decorative {
+  font-family: var(--font-decorative);
+  font-size: var(--text-14);
+  line-height: var(--leading-20);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Diagonal stripe pattern (compact) using border-strong token */
+@utility bg-diagonal-strong {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0px,
+    transparent 5px,
+    var(--color-border-strong) 5px,
+    var(--color-border-strong) 6px
+  );
+}
+
+/* Square bullets for experience details */
+@utility list-square {
+  list-style-type: square;
+}
+
 
 html,
 body {
