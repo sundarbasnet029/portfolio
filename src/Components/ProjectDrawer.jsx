@@ -98,10 +98,11 @@ export function ProjectDrawer({ project, onClose, onPrev, onNext }) {
 
         {/* Centered content column */}
         <div className="flex max-h-full w-[640px] max-w-full flex-col overflow-y-auto border-x border-solid border-border-strong [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="h-8 shrink-0  border-solid border-border-strong bg-bg-0" />
+
+            <Divider height={32}/>
 
           {/* Activity bar */}
-          <div className="flex items-center justify-between self-stretch px-2 py-4">
+          <div className="flex items-center justify-between self-stretch px-2 py-3">
             <button
               onClick={onPrev}
               aria-label="Previous project"
@@ -120,7 +121,7 @@ export function ProjectDrawer({ project, onClose, onPrev, onNext }) {
             </button>
           </div>
 
-          <Divider height={48}/>
+          <Divider height={32}/>
           <img
             src={displayed.heroImage}
             alt={displayed.title}
