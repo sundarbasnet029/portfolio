@@ -1,5 +1,6 @@
 import testBg from "../Assets/testBg.png";
 import { Divider } from "./Divider";
+import lightBg from '../Assets/lightBg.jpg';
 
 export function WorkExperiment() {
   return (
@@ -16,6 +17,14 @@ export function WorkExperiment() {
             src={testBg}
             alt="testbg"
             className="w-full transition-all duration-300 group-hover:scale-105 group-hover:blur-sm"
+          />
+          <div
+          className="
+            absolute inset-0
+            bg-black/0
+            transition-opacity duration-500
+            dark:bg-black/40
+            "
           />
 
           {/* Overlay */}
@@ -36,7 +45,7 @@ export function WorkExperiment() {
         {/* Item 2 */}
         <div className="item1 group relative cursor-pointer overflow-hidden ">
           <img
-            src={testBg}
+            src={lightBg}
             alt="testbg"
             className="w-full transition-all duration-300 group-hover:scale-105 group-hover:blur-sm"
           />
