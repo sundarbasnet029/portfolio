@@ -1,3 +1,5 @@
+import { SOCIALS } from "../Data/data";
+
 const icons = {
   email: (
     <svg className="text-text-secondary group-hover:text-gold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -29,12 +31,7 @@ const icons = {
 }
 
 
-const SOCIALS = [
-  { id: 'email', name: 'Email', href: 'mailto:hello@sundarbasnet.com', external: false },
-  { id: 'x', name: 'Twitter(X)', href: 'https://x.com/', external: true },
-  { id: 'linkedIn', name: 'Linkedin', href: 'https://www.linkedin.com/', external: true },
-  { id: 'behance', name: 'Behance', href: 'https://www.behance.net/', external: true },
-];
+
 
 const SOCIAL_ITEM_BASE = 'grow min-w-0 flex items-end pt-20 pb-3 overflow-clip gap-2.5 px-4 bg-bg-1 group cursor-pointer';
 const SOCIAL_ITEM_SHADOW = 'inset-shadow-[0px_0px_20px] inset-shadow-inner-shadow hover:inset-shadow-[0px_0px_10px] hover:inset-shadow-inner-shadow-hover';
