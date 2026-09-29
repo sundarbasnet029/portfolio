@@ -156,13 +156,13 @@ export function Rulers() {
   return (
     <>
       {/* Horizontal ruler */}
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-40 hidden h-6 overflow-hidden  bg-bg-0 md:block">
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-90 hidden h-6 overflow-hidden  bg-bg-0 md:block">
         <HorizontalRuler width={width} />
       </div>
 
       {/* Vertical ruler — scrolls with the page */}
       <div
-        className="pointer-events-none absolute left-0 top-6 z-40 hidden w-10 overflow-hidden bg-bg-0 md:block"
+        className="pointer-events-none absolute left-0 top-6 z-90 hidden w-10 overflow-hidden bg-bg-0 md:block"
         style={{ height: pageHeight }}
       >
         <VerticalRuler height={pageHeight} />

@@ -25,7 +25,7 @@ export function WorkExperiment() {
 
   return (
     <section className="flex flex-col  border border-solid border-border-strong bg-bg-0  pb-20">
-      <div className="flex items-center justify-center px-8 py-8 ">
+      <div className="sticky top-6 z-80 flex items-center justify-center px-8 py-8 border-b border-solid border-border-strong bg-bg-0">
         <h2 className="grow text-text-secondary text-14-decorative">
           \Work + Experiments
         </h2>
@@ -34,10 +34,12 @@ export function WorkExperiment() {
         
         {/*Looping through array to dynamically display content*/}
         {projectArray.map(( project, index)=>{
-
+          let baseIndex = 50;
           const bgImage = bgArray[index];
           return(
-             <div className={`${project.id} ` }>
+             <div className={`${project.id} sticky top-26 ` }
+             style={{ zIndex : baseIndex+1}}
+             >
             <div
               role="button"
               tabIndex={0}
@@ -58,17 +60,17 @@ export function WorkExperiment() {
           <img
             src={project.heroImage}
             alt={project.title}
-            className="relative z-10 w-full transition-all duration-300 group-hover:scale-103 "
+            className="relative z-5 w-full transition-all duration-300 group-hover:scale-103 "
           />
 
           
           {/* Overlay */}
-          <div className="absolute z-40 inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 backdrop-blur" 
+          <div className="absolute z-10 inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 backdrop-blur" 
             style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%)"}}
           />
 
           {/* Content */}
-          <div className="absolute z-50 inset-0 flex flex-col justify-end p-6 opacity-0 transition-all duration-300 group-hover:opacity-100 ">
+          <div className="absolute z-20 inset-0 flex flex-col justify-end p-6 opacity-0 transition-all duration-300 group-hover:opacity-100 ">
             <h3 className="text-[#F5F5F5] text-16-medium">{project.title}</h3>
 
             <p className="mt-1 text-[#B8B8B8] text-14-regular">
