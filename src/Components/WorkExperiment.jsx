@@ -1,3 +1,4 @@
+import { useScramble } from "use-scramble";
 import { useState } from "react";
 import { Divider } from "./Divider";
 import { ProjectDrawer } from "./ProjectDrawer";
@@ -10,6 +11,44 @@ import bg4 from "../Assets/bg4.jpg"
 import bg5 from "../Assets/bg5.jpg"
 
 const bgArray = [ bg1, bg2, bg3 ,bg4, bg5];
+
+// scramble text component
+
+function ScrambleOverlay({ title, description }) {
+  console.log(title);
+  const { ref:titleRef, replay:replayTitle } = useScramble({
+    text: title,
+    playOnMount: false,
+    speed: 0.9,
+    scramble: 8
+  });
+
+  const { ref:descriptionRef, replay: replayDescription } = useScramble({
+     text: description,
+    playOnMount: false,
+    speed: 1.0,
+    scramble:3,
+    step:8,
+    overdrive:true
+  });
+
+  const replayAll = ()=>{
+    replayTitle();
+    replayDescription();
+  }
+  return (
+    <div 
+    className="absolute z-20 inset-0 flex flex-col justify-end p-6 opacity-0 transition-all duration-300 group-hover:opacity-100 "
+    onPointerEnter={replayAll}
+    >
+    <h3 ref ={titleRef} className="text-[#F5F5F5] text-16-medium"/>
+    <p ref={descriptionRef} className="mt-1 text-[#B8B8B8] text-14-regular"/>
+  </div>
+    
+
+  );
+}
+
 
 export function WorkExperiment() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -70,13 +109,9 @@ export function WorkExperiment() {
           />
 
           {/* Content */}
-          <div className="absolute z-20 inset-0 flex flex-col justify-end p-6 opacity-0 transition-all duration-300 group-hover:opacity-100 ">
-            <h3 className="text-[#F5F5F5] text-16-medium">{project.title}</h3>
+         
+              <ScrambleOverlay title={project.title} description={project.description} />
 
-            <p className="mt-1 text-[#B8B8B8] text-14-regular">
-              {project.description}
-            </p>
-          </div>
         </div>
 
         <Divider height={32} />
