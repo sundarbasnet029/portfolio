@@ -1,4 +1,8 @@
 import testBg from '../Assets/testBg.png';
+import test from "../Assets/test.jpg";
+import thumbnail1 from "../Assets/thumbnail1.png";
+import thumbnail2 from "../Assets/thumbnail2.png";
+import thumbnail3 from "../Assets/thumbnail3.png";
 
 export const SOCIALS = [
     { id: 'email', name: 'Email', href: 'mailto:hello@sundarbasnet.com', external: false },
@@ -9,7 +13,7 @@ export const SOCIALS = [
 
   export const projectArray = [
     {
-      id: "project-1",
+      id: "1",
       title: "Dialaxy",
       category: "Product Design",
       year: "2026",
@@ -19,7 +23,7 @@ export const SOCIALS = [
       duration: "6 months",
       tools: ["Figma", "FigJam", "React"],
   
-      heroImage: testBg,
+      heroImage: thumbnail1,
   
       sections: [
         {
@@ -48,7 +52,7 @@ export const SOCIALS = [
     },
   
     {
-      id: "project-2",
+      id: "2",
       title: "AirChannel",
       category: "Product Design",
       year: "2026",
@@ -58,7 +62,7 @@ export const SOCIALS = [
       duration: "4 months",
       tools: ["Figma", "FigJam"],
   
-      heroImage: testBg,
+      heroImage: thumbnail2,
   
       sections: [
         {
@@ -87,7 +91,7 @@ export const SOCIALS = [
     },
   
     {
-      id: "project-3",
+      id: "3",
       title: "Assignment Tracker",
       category: "Product Design",
       year: "2025",
@@ -97,7 +101,7 @@ export const SOCIALS = [
       duration: "3 months",
       tools: ["Figma", "FigJam", "React"],
   
-      heroImage: testBg,
+      heroImage: thumbnail3,
   
       sections: [
         {
@@ -126,7 +130,7 @@ export const SOCIALS = [
     },
   
     {
-      id: "project-4",
+      id: "4",
       title: "MovieShelf",
       category: "Web Design",
       year: "2025",

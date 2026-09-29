@@ -123,7 +123,7 @@ export function Experience() {
   return (
     <section className="flex flex-col overflow-clip bg-bg-0 py-20">
       <div className="flex items-start ">
-        <div className="flex items-center gap-2  border-x border-t border-solid border-border-strong bg-bg-1 px-5 py-4 drop-shadow-[-2px_-4px_6px_drop-shadow] group cursor-pointer">
+        <div className="flex items-center gap-2  border-x border-t border-solid border-border-strong bg-bg-1 px-5 py-4 group cursor-pointer">
           <span className={`${activeTab === 'experience'? 'text-text-primary': 'text-text-tertiary group-hover:text-text-primary' } text-14-decorative`}
             onClick = {()=>{
               setActiveTab('experience');
@@ -133,7 +133,7 @@ export function Experience() {
           </span>
         </div>
 
-        <div className='flex items-center justify-center gap-2  border-x border-t border-solid border-border-strong bg-bg-1 px-5 py-4 drop-shadow-[-2px_-4px_6px_drop-shadow] group cursor-pointer'>
+        <div className='flex items-center justify-center gap-2  border-x border-t border-solid border-border-strong bg-bg-1 px-5 py-4 group cursor-pointer'>
 
           <span className={`${activeTab === 'about'? 'text-text-primary': 'text-text-tertiary group-hover:text-text-primary'} text-14-decorative `} 
           onClick = {()=>{
@@ -146,7 +146,7 @@ export function Experience() {
         <Divider height={52}/>
       </div>
 
-      <div className="mx-0 flex flex-col self-stretch  bg-bg-1  inset-shadow-[0px_0px_20px] inset-shadow-inner-shadow outline-1 outline-solid outline-border-soft">
+      <div className="mx-0 flex flex-col self-stretch  bg-bg-1 outline-1 outline-solid outline-border-soft">
       { activeTab === 'experience' && <ExperienceContainer/>}      
       { activeTab === 'about' && <AboutContainer/>}      
       </div>

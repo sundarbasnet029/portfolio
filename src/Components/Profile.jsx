@@ -4,12 +4,13 @@ export function Profile(){
     return(
         <section className="flex flex-col items-start gap-6 px-8 py-16 bg-bg-0">
           <div className="flex flex-col items-start gap-3  ">
-            <div className="size-14 overflow-hidden rounded-[12px] ">
+            <div>
               <img
                 src={profileImg}
                 alt="Sundar Basnet"
-                className="profile-image"
+                className="profile-image size-14 object-cover"
               />
+              
             </div>
             <div className="flex flex-col ">
               <h1 className="text-text-primary text-xl font-medium ">
