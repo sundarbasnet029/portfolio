@@ -13,9 +13,9 @@ import { WorkExperiment } from './Components/WorkExperiment'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-bg-0 flex justify-center md:pt-6">
+    <div className="relative min-h-screen bg-bg-0 flex justify-center md:pt-6">
       <Rulers />
-      <div className="w-[640px] max-w-full flex flex-col border-l border-r border-solid border-border-strong bg-bg-0">
+      <div id="portfolio-column" className="w-[640px] max-w-full flex flex-col border-l border-r border-solid border-border-strong bg-bg-0">
         {/* Here goes header */}
         <Header />
 

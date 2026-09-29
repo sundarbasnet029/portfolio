@@ -14,23 +14,41 @@ function useViewportSize() {
           height: window.innerHeight,
         }
   );
+  const [pageHeight, setPageHeight] = useState(0);
 
   useEffect(() => {
-    const onResize = () => {
+    const measure = () => {
       setSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
+      // Measure the content column (not the document): the ruler itself
+      // extends the scrollable area, so sizing from scrollHeight ratchets
+      // upward and leaves blank space at the page bottom.
+      const column = document.getElementById("portfolio-column");
+      const contentHeight = column
+        ? column.offsetHeight
+        : Math.max(
+            document.documentElement.scrollHeight - TOP_RULER_HEIGHT,
+            0
+          );
+      setPageHeight(Math.max(contentHeight, 0));
     };
 
-    onResize();
+    measure();
 
-    window.addEventListener("resize", onResize);
+    window.addEventListener("resize", measure);
+    const column = document.getElementById("portfolio-column");
+    const observer = new ResizeObserver(measure);
+    if (column) observer.observe(column);
 
-    return () => window.removeEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", measure);
+      observer.disconnect();
+    };
   }, []);
 
-  return size;
+  return { ...size, pageHeight };
 }
 
 function HorizontalRuler({ width }) {
@@ -133,7 +151,7 @@ function VerticalRuler({ height }) {
 }
 
 export function Rulers() {
-  const { width, height } = useViewportSize();
+  const { width, pageHeight } = useViewportSize();
 
   return (
     <>
@@ -142,11 +160,12 @@ export function Rulers() {
         <HorizontalRuler width={width} />
       </div>
 
-      {/* Vertical ruler */}
-      <div className="pointer-events-none fixed bottom-0 left-0 top-6 z-40 hidden w-10 overflow-hidden bg-bg-0 md:block">
-        <VerticalRuler
-          height={Math.max(height - TOP_RULER_HEIGHT, 0)}
-        />
+      {/* Vertical ruler — scrolls with the page */}
+      <div
+        className="pointer-events-none absolute left-0 top-6 z-40 hidden w-10 overflow-hidden bg-bg-0 md:block"
+        style={{ height: pageHeight }}
+      >
+        <VerticalRuler height={pageHeight} />
       </div>
     </>
   );
