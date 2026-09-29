@@ -1,6 +1,8 @@
 import {useState} from "react";
 import codavatarLogo from "../Assets/codavatarLogo.png";
 import chevronRightIcon from "../Assets/chevronRightIcon.svg";
+import { Divider } from "./Divider";
+import { ScrambleText } from "./ScrambleText";
 
 const EXPERIENCES = [
   {
@@ -42,12 +44,12 @@ const ExperienceContainer = ()=>{
      const isFirst = index === 0;
      const isLast = index === EXPERIENCES.length - 1;
      return (
-       <div key={item.role}>
+       <div  key={item.role}>
          {/* header row */}
          <div
            onClick={() => toggle(index)}
            aria-expanded={isExpanded}
-           className={`flex items-end gap-4 overflow-clip px-3 py-5 hover:bg-bg-2 cursor-pointer ${isFirst ? 'rounded-t-[12px]' : ''} ${isLast && !isExpanded ? 'rounded-b-[12px]' : ''} ${isExpanded ? 'bg-bg-1' : ''}`}
+           className={`flex items-end gap-4 overflow-clip px-5 py-5 hover:bg-bg-2 cursor-pointer  ${isLast && !isExpanded ? 'rounded-b-[12px]' : ''} ${isExpanded ? 'bg-bg-1' : ''}`}
          >
            <img src={codavatarLogo} alt="" className="logo w-[40px]" />
            <div className="flex min-w-0 grow items-center gap-4">
@@ -62,7 +64,7 @@ const ExperienceContainer = ()=>{
              <p className="shrink-0 text-text-tertiary text-14-regular">
                {item.date}
              </p>
-             <div className="flex size-5 shrink-0 items-center justify-center">
+             <div className="flex size-4 shrink-0 items-center justify-center">
                <img
                  src={chevronRightIcon}
                  alt='Click to expand'
@@ -77,9 +79,9 @@ const ExperienceContainer = ()=>{
             className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
           >
             <div className="min-h-0 overflow-hidden">
-              <ul className="flex flex-col gap-4 pr-3 pb-6 pl-20 self-stretch list-square list-outside marker:text-text-tertiary">
+              <ul className="flex flex-col gap-4 pr-3 pb-6 pl-22 pt-2 self-stretch list-square list-outside marker:text-text-tertiary">
                 {item.details.map((text, i) => (
-                  <li key={i} className="self-stretch pl-2 text-text-secondary text-13-regular">
+                  <li key={i} className="self-stretch pl-1 text-text-secondary text-14-regular">
                     {text}
                   </li>
                 ))}
@@ -106,7 +108,7 @@ const ExperienceContainer = ()=>{
 
 const AboutContainer = ()=>{
   return(
-    <div className="about-content p-4">
+    <div className="about-content p-5">
       <p className="about-me text-text-secondary text-14-regular">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aspernatur, vero atque provident ipsam corrupti ipsum, numquam tenetur, adipisci eum nostrum tempora? Est asperiores odio quod recusandae rerum ex commodi!
 
@@ -120,30 +122,31 @@ export function Experience() {
       const [ activeTab, setActiveTab] = useState('experience');
   return (
     <section className="flex flex-col overflow-clip bg-bg-0 py-20">
-      <div className="flex items-start px-5">
-        <div className="flex items-center gap-2 rounded-t-[12px] border-x border-t border-solid border-border-strong bg-bg-1 px-6 py-2 drop-shadow-[-2px_-4px_6px_drop-shadow] group cursor-pointer">
+      <div className="flex items-start ">
+        <div className="flex items-center gap-2  border-x border-t border-solid border-border-strong bg-bg-1 px-5 py-4 drop-shadow-[-2px_-4px_6px_drop-shadow] group cursor-pointer">
           <span className={`${activeTab === 'experience'? 'text-text-primary': 'text-text-tertiary group-hover:text-text-primary' } text-14-decorative`}
             onClick = {()=>{
               setActiveTab('experience');
              
             }}>
-            \Experience
+            <ScrambleText text={"\Experience"}/>
           </span>
         </div>
 
-        <div className='flex items-center justify-center gap-2 rounded-t-[12px] border-x border-t border-solid border-border-strong bg-bg-1 px-6 py-2 drop-shadow-[-2px_-4px_6px_drop-shadow] group cursor-pointer'>
+        <div className='flex items-center justify-center gap-2  border-x border-t border-solid border-border-strong bg-bg-1 px-5 py-4 drop-shadow-[-2px_-4px_6px_drop-shadow] group cursor-pointer'>
 
           <span className={`${activeTab === 'about'? 'text-text-primary': 'text-text-tertiary group-hover:text-text-primary'} text-14-decorative `} 
           onClick = {()=>{
             setActiveTab('about');
           }}
           >
-            \About
+          <ScrambleText text={"\About"}/>
           </span>
         </div>
+        <Divider height={52}/>
       </div>
 
-      <div className="mx-0 flex flex-col self-stretch rounded-[16px] bg-bg-1 p-4 inset-shadow-[0px_0px_20px] inset-shadow-inner-shadow outline-1 outline-solid outline-border-soft">
+      <div className="mx-0 flex flex-col self-stretch  bg-bg-1  inset-shadow-[0px_0px_20px] inset-shadow-inner-shadow outline-1 outline-solid outline-border-soft">
       { activeTab === 'experience' && <ExperienceContainer/>}      
       { activeTab === 'about' && <AboutContainer/>}      
       </div>

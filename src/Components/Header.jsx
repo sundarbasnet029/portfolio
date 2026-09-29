@@ -13,12 +13,13 @@ function Clock() {
   }, []);
 
   const formattedTime = time.toLocaleTimeString([], {
+    timeZone: "Asia/Kathmandu",
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
   });
 
-  return <span>{formattedTime}</span>;
+  return <span>{formattedTime},Kathmandu</span>;
 }
 
 export default Clock;
